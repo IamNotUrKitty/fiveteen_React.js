@@ -23,7 +23,7 @@ var APP = React.createClass({
 			return index === 0 || parseInt(array[index - 1]) <= parseInt(value)
 		});
 		if(win){
-			 console.log('U Win!!!');
+			 window.alert('U Win!!!');
 		}
 	},
 	componentWillMount(){
@@ -33,11 +33,7 @@ var APP = React.createClass({
 		var that = this;
 		return (<div className="game">
 					{this.state.positions.map(function(i,key){
-						if(i != 16) {
-							return <Cell update={that.updatePosition} empty={that.state.emptyCell} index={key}  key={key} val={i}/>
-						}else{
-							return <Cell val={i} key={key} />
-						}
+						return <Cell update={that.updatePosition} empty={that.state.emptyCell} index={key}  key={key} val={i}/>
 					})}
 				</div>)
 	}
