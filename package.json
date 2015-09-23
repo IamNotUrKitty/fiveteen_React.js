@@ -1,0 +1,30 @@
+{
+  "name": "fiveteen_React.js",
+  "version": "1.0.0",
+  "description": "Simple Fiveteen Game using React",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IamNotUrKitty/fiveteen_React.js.git"
+  },
+  "keywords": [
+    "React",
+    "Game",
+    "Fiveteen"
+  ],
+  "author": "IamNotUrKitty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IamNotUrKitty/fiveteen_React.js/issues"
+  },
+  "homepage": "https://github.com/IamNotUrKitty/fiveteen_React.js",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-stylus": "^2.0.7"
+  },
+  "dependencies": {
+    "react": "^0.13.3"
+  }
+}

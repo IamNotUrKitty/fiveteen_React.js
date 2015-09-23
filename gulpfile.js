@@ -1,6 +1,3 @@
-/**
- * Created by lirla on 24.08.2015.
- */
 var gulp = require('gulp');
 var browserify =require('gulp-browserify');
 var concat = require('gulp-concat');
