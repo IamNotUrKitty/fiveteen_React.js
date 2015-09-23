@@ -3,7 +3,7 @@ var React = require('react');
 
 var Cell = React.createClass({
 	handleClick(){
-		var dif = this.props.index - this.props.empty
+		var dif = this.props.index - this.props.empty;
 		var absDif = Math.abs(dif);
 		var translate = "";
 		if(absDif == 1 || absDif == 4 ){
@@ -21,8 +21,14 @@ var Cell = React.createClass({
 					translate = "move-top";
 					break
 			}
-			React.findDOMNode(this.refs.cell).addEventListener('transitionend',this.props.update.bind(null,this.props.index));
-			React.findDOMNode(this.refs.cell).className += " " + translate;
+			var el = React.findDOMNode(this.refs.cell);
+			var _update = this.props.update.bind(null, this.props.index);
+			var _func = function(){
+				_update();
+				el.removeEventListener('transitionend', _func, false);
+			};
+			el.addEventListener('transitionend', _func);
+			el.className += " " + translate;
 		}
 	},
 	render(){
