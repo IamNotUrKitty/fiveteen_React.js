@@ -1,6 +1,6 @@
-/**@jsx React.DOM*/
-var APP = require('./components/app');
-var React = require('react');
+import APP from './components/app'
+import React from 'react'
+require('../css/style.styl');
 
 
-React.render(<APP />,document.getElementById('main'));
+React.render(<APP />, document.getElementById('main'));
