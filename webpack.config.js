@@ -1,5 +1,6 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var stylusLoader  = ExtractTextPlugin.extract('style-loader',"css-loader!stylus-loader");
+var webpack = require('webpack');
 module.exports = {
 	entry:"./src/js/main.js",
 	output:{
@@ -19,6 +20,7 @@ module.exports = {
 		]
 	},
 	plugins:[
-		new ExtractTextPlugin("public/style.css")
+		new ExtractTextPlugin("public/style.css"),
+		new webpack.optimize.UglifyJsPlugin({minimize: true})
 	]
 };
