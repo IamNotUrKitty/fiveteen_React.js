@@ -14,19 +14,20 @@ export default class APP extends Component {
             positions: shuffle(range(0, 16))
         }
     }
+
     updatePosition(index) {
         let arr = this.state.positions;
         let emptyIndex = arr.indexOf(0);
         let targetIndex = arr.indexOf(index);
         const dif = Math.abs(targetIndex - emptyIndex);
-        if(dif == 1 || dif == 4 ){
+        if (dif == 1 || dif == 4) {
             arr[emptyIndex] = index;
             arr[targetIndex] = 0;
             this.setState({
                 positions: arr
             });
             let win = every(arr, (value, index, array)=> {
-                value = value||16;
+                value = value || 16;
                 return index === 0 || parseInt(array[index - 1]) <= parseInt(value)
             });
             if (win) {
@@ -34,27 +35,26 @@ export default class APP extends Component {
             }
         }
     }
+
     render() {
         return (<div className="game">
-							{this.state.positions.map((i, key)=> {
-                                let cellClass = (key == 0) ? 'empty cell' : "cell";
-                                let x;
-                                let y;
-                                [x,y] = layout[this.state.positions.indexOf(key)];
-                                let style = {
-                                    tX: spring(x),
-                                    tY: spring(y)
-                                };
-                                return <Motion style={style} key={key}>
-                                   	{({ tX, tY }) =>
-                                        <div className={cellClass}
-                                            onClick={this.updatePosition.bind(this, key)}
-                                            style={{
-                                                transform: `translate3d(${tX}px,${tY}px,0) scale(1.1)`
-                                            }}>{key}</div>
-                                        }
-                                </Motion>
-                            })}
+            {this.state.positions.map((i, key)=> {
+                let cellClass = (key == 0) ? 'empty cell' : "cell";
+                let x;
+                let y;
+                [x,y] = layout[this.state.positions.indexOf(key)];
+                let style = {
+                    tX: spring(x),
+                    tY: spring(y)
+                };
+                return <Motion style={style} key={key}>
+                    {({ tX, tY }) =>
+                        <div className={cellClass}
+                             onClick={this.updatePosition.bind(this, key)}
+                             style={{transform: `translate3d(${tX}px,${tY}px,0) scale(1.1)`}}>{key}</div>
+                    }
+                </Motion>
+            })}
         </div>)
     }
 }
