@@ -28,9 +28,7 @@
     "webpack": "^1.12.2"
   },
   "dependencies": {
-    "core-decorators": "^0.4.1",
     "lodash": "^3.10.1",
-    "react": "^0.13.3",
-    "react-motion": "^0.3.0"
+    "react": "^0.13.3"
   }
 }
